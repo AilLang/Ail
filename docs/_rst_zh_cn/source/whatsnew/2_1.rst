@@ -1,0 +1,18 @@
+AIL 2.1 Leopard
+###############
+
+
+#. 运行时更换为 Python 运行时，焕然一新的运行速度！
+   *AIL运行时仍然保留，只不过默认处于关闭状态*
+#. 新的 for 语法！
+
+    * for 语句将有 3 种形式: forever, condition-only, classic
+    * forever: :code:`for {...}`
+    * condition-only: :code:`for expr {...}`
+    * classic: :code:`for [init] ; [condition] ; [update] {...}`
+    * *仍然可以使用旧的 for 语法*
+#. 类型注释语法，便于静态类型检查器检查代码的正确性
+#. 元组的加入！您可以使用 :code:`,` 分隔数据来声明元组！
+   *一般来说建议使用 (...) 声明元组*
+#. 数据解包操作！
+
