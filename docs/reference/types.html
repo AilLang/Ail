@@ -1,0 +1,311 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>2. 基本类型 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="3. 名称空间" href="namespace.html" />
+    <link rel="prev" title="1. 操作符" href="operators.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">2. 基本类型</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">2.1. 数字</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">2.1.1. 精度与范围</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">2.1.2. 表示方式</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">2.1.3. 其他进制</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id11">2.1.4. 复数</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id12">2.2. 字符串</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id13">2.2.1. 单行字符串</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">2.2.2. 多行字符串</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id15">2.3. 数组</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">3. 名称空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html">4. 结构体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_print.html">5. 基本输入和输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical.html">6. 词法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ctrl_flow.html">7. 基本控制流</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">2. </span>基本类型</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/types.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">2. </span>基本类型<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">2.1. </span>数字<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>AIL数字分为整数，浮点数，复数。</p>
+<div class="section" id="id3">
+<h3><span class="section-number">2.1.1. </span>精度与范围<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>浮点数最大精度为64位精度。</p>
+<p>整数大小在一定程度上没有限制（受到内存制约）。</p>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">2.1.2. </span>表示方式<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>AIL用于表示实数的方式有两种： <strong>直接表示</strong> 与 <strong>科学计数法</strong> 。</p>
+<div class="section" id="id5">
+<h4><span class="section-number">2.1.2.1. </span>直接表示<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h4>
+<p>如：726, 50.13
+正则表达式: <code class="code docutils literal notranslate"><span class="pre">^-?\d+\.?\d*$*</span></code></p>
+</div>
+<div class="section" id="id6">
+<h4><span class="section-number">2.1.2.2. </span>科学计数法<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h4>
+<p>如：1e10, 3e-2, 6.2e3
+正则表达式: <code class="code docutils literal notranslate"><span class="pre">^([\\+|-]?\\d+(.{0}|.\\d+))[Ee]{1}([\\+|-]?\\d+)$</span></code></p>
+</div>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">2.1.3. </span>其他进制<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>对于整数，AIL还提供了除10进制以外的其他进制表示：2进制、8进制、16进制。</p>
+<div class="section" id="id8">
+<h4><span class="section-number">2.1.3.1. </span>2进制<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>以: <strong>0b</strong> 或 <strong>0B</strong> 开头，后加 [0 - 1] 的数字字符。
+如: 0b01101, 0b1011010110</p>
+</div>
+<div class="section" id="id9">
+<h4><span class="section-number">2.1.3.2. </span>8进制<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h4>
+<p>以: <strong>0o</strong> 或 <strong>0O</strong> 开头，后加 [0 - 7] 的数字字符。
+如: 0o11557, 0O1326</p>
+</div>
+<div class="section" id="id10">
+<h4><span class="section-number">2.1.3.3. </span>16进制<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h4>
+<p>以: <strong>0x</strong> 或 <strong>0X</strong> 开头，后加 [0 - 9] ∪ [a - f] ∪ [A - F] 的字符。
+如: 0xcafebabe, 0X2d6</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h3><span class="section-number">2.1.4. </span>复数<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h3>
+<p>AIL中提供了对复数的支持，其以 <code class="code docutils literal notranslate"><span class="pre">complex</span></code> 类型的方式存在。</p>
+<p>在AIL中，可以使用 <code class="code docutils literal notranslate"><span class="pre">complex(real,</span> <span class="pre">imag)</span></code> 函数来产生一个复数，其实部是real，虚部是imag。</p>
+<p>complex类型支持与complex自身、integer、float类型进行基本四则运算和幂运算。</p>
+</div>
+</div>
+<div class="section" id="id12">
+<h2><span class="section-number">2.2. </span>字符串<a class="headerlink" href="#id12" title="永久链接至标题">¶</a></h2>
+<p>AIL的字符串默认情况下以 UTF-8 编码方式进行编码，以保证最好的兼容性。</p>
+<div class="section" id="id13">
+<h3><span class="section-number">2.2.1. </span>单行字符串<a class="headerlink" href="#id13" title="永久链接至标题">¶</a></h3>
+<p>单行字符串以 <code class="code docutils literal notranslate"><span class="pre">'</span></code> 或 <code class="code docutils literal notranslate"><span class="pre">&quot;</span></code> 开头，以相对应的开头进行结尾。开头结尾的引号不能混用。若要在字符串内表示用于开头的引号，需要在引号前使用反斜杠 转义。</p>
+</div>
+<div class="section" id="id14">
+<h3><span class="section-number">2.2.2. </span>多行字符串<a class="headerlink" href="#id14" title="永久链接至标题">¶</a></h3>
+<p>AIL中并没有严格区分多行字符串与单行字符串。对起始和结尾的引号的要求与单行字符串相同。</p>
+</div>
+</div>
+<div class="section" id="id15">
+<h2><span class="section-number">2.3. </span>数组<a class="headerlink" href="#id15" title="永久链接至标题">¶</a></h2>
+<p>AIL提供了对于动态数组的支持，其使用方法于一般的动态数组（如Java中的ArrayList）类似。</p>
+<p>AIL中用于表示数组的语法为: <code class="code docutils literal notranslate"><span class="pre">'['</span> <span class="pre">expr</span> <span class="pre">(','</span> <span class="pre">expr)*</span> <span class="pre">']'</span></code> 。</p>
+<p>AIL用于表示数组的类型为 <code class="code docutils literal notranslate"><span class="pre">array</span></code> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">info</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">726</span><span class="p">,</span> <span class="mf">50.13</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="namespace.html" class="btn btn-neutral float-right" title="3. 名称空间" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="operators.html" class="btn btn-neutral float-left" title="1. 操作符" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

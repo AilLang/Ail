@@ -1,0 +1,267 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AIL 教程 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="1. 搭建AIL运行环境" href="setup.html" />
+    <link rel="prev" title="AIL 1.2 DragonLi" href="../whatsnew/1_2.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">入门教程</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html">1. 搭建AIL运行环境</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html">2. 将AIL用于计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable.html">3. 存储和使用变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html">4. 基本AIL程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicstmt.html">5. 基本输入输出语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlflow.html">6. 基本流程控制语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">语言参考</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>AIL 教程</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ail">
+<h1>AIL 教程<a class="headerlink" href="#ail" title="永久链接至标题">¶</a></h1>
+<p>AIL, Algorithm Interpreting Language, 是一门用于描述算法的编程语言。</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="setup.html">1. 搭建AIL运行环境</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#id1">1.1. 前期准备</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#id2">1.2. 下载AIL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="setup.html#id3">1.3. 安装AIL</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basic.html">2. 将AIL用于计算</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id1">2.1. 数字</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id2">2.2. 运算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id3">2.3. 字符串</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html#id4">2.4. 小结</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="variable.html">3. 存储和使用变量</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="variable.html#id2">3.1. 定义与赋值</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable.html#id3">3.2. 使用变量</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="variable.html#id4">3.2.1. 使用变量进行运算</a></li>
+<li class="toctree-l3"><a class="reference internal" href="variable.html#id5">3.2.2. 无意义代码</a></li>
+<li class="toctree-l3"><a class="reference internal" href="variable.html#id6">3.2.3. 作为别称</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="variable.html#id7">3.3. 小结</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="program.html">4. 基本AIL程序</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="program.html#id1">4.1. 编写AIL程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html#id2">4.2. 运行AIL程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html#id3">4.3. AIL程序结构</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html#id4">4.4. AIL语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html#id5">4.5. AIL语句块</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="basicstmt.html">5. 基本输入输出语句</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="basicstmt.html#print">5.1. print 语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicstmt.html#input">5.2. input 语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="controlflow.html">6. 基本流程控制语句</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="setup.html" class="btn btn-neutral float-right" title="1. 搭建AIL运行环境" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../whatsnew/1_2.html" class="btn btn-neutral float-left" title="AIL 1.2 DragonLi" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

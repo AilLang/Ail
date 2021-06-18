@@ -1,0 +1,358 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>7. 基本控制流 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="prev" title="6. 词法分析" href="lexical.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">2. 基本类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">3. 名称空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html">4. 结构体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_print.html">5. 基本输入和输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical.html">6. 词法分析</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">7. 基本控制流</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#if-elif-else">7.1. if-elif-else语句</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id2">7.1.1. 格式要求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#while">7.2. while语句</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">7.2.1. 格式要求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#for">7.3. for语句</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">7.3.1. 格式要求</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#breakcontinue">7.4. break与continue</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#try-catch-finally">7.5. try-catch-finally语句</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">7. </span>基本控制流</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/basic_ctrl_flow.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">7. </span>基本控制流<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>AIL提供了几种控制流语句来改变程序执行的顺序。</p>
+<div class="section" id="if-elif-else">
+<h2><span class="section-number">7.1. </span>if-elif-else语句<a class="headerlink" href="#if-elif-else" title="永久链接至标题">¶</a></h2>
+<p>条件判断语句可以使得程序根据某个条件来选择执行的方向。语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&#39;if&#39; condition &#39;{
+    stmt*
+&#39;}&#39; [&#39;elif&#39; condition &#39;{&#39;
+    stmt*
+&#39;}&#39;]* [&#39;else&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39;]?
+</pre></div>
+</div>
+<p>其中，if 后跟的语句块在 if 后的条件为 <strong>True</strong> 时被执行，执行完后将跳转出 <strong>整个语句</strong> 。否则将跳转至 elif 或者 else 块。其中，elif 可以有多条，后仍然接一个条件，条件为 <strong>True</strong> 时，执行其后跟的语句块，执行完后跳出整个语句，否则继续检测下一个elif。如果有 else ，且if, elif给出的条件均为 <strong>False</strong> ，则 else 语句块被执行。</p>
+<div class="section" id="id2">
+<h3><span class="section-number">7.1.1. </span>格式要求<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h3>
+<p>对于该语句，请将 <code class="code docutils literal notranslate"><span class="pre">{</span></code> 写在 <em>condition</em> 之后，且在同一行，而 <code class="code docutils literal notranslate"><span class="pre">}</span></code> 写在 elif 和 else 之后（如果有的话）），且在同一行。</p>
+</div>
+</div>
+<div class="section" id="while">
+<h2><span class="section-number">7.2. </span>while语句<a class="headerlink" href="#while" title="永久链接至标题">¶</a></h2>
+<p>while语句可以对语句块内容进行循环执行操作。其语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="s1">&#39;while&#39;</span> <span class="n">condition</span> <span class="s1">&#39;{&#39;</span>
+    <span class="n">stmt</span><span class="o">*</span>
+<span class="s1">&#39;}&#39;</span>
+</pre></div>
+</div>
+<p>while在流程上属于 <strong>先判断，后执行</strong> 型语句。</p>
+<div class="section" id="id3">
+<h3><span class="section-number">7.2.1. </span>格式要求<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>对于该语句，<code class="code docutils literal notranslate"><span class="pre">{</span></code> 要与 <em>condition</em> 在同一行。</p>
+</div>
+</div>
+<div class="section" id="for">
+<h2><span class="section-number">7.3. </span>for语句<a class="headerlink" href="#for" title="永久链接至标题">¶</a></h2>
+<p>与while类似，for语句也多用于实现循环执行。其语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>&#39;for&#39; &#39;(&#39; [expr [&#39;,&#39; expr]*]? &#39;;&#39; condition &#39;;&#39; [expr [&#39;,&#39; expr]*]? &#39;)&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39;
+</pre></div>
+</div>
+<p>for除语句块部分外，由三个部分组成： <em>Initialize</em> , <em>Condition</em> , <em>Update</em></p>
+<p>下面是三个部分之间的关系：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>    <span class="o">|</span>
+    <span class="n">V</span>
+<span class="n">Initialize</span>
+    <span class="o">|&lt;------|</span>
+    <span class="o">|</span>       <span class="o">|</span>
+    <span class="n">V</span>       <span class="o">|</span>
+<span class="n">Condition</span>   <span class="o">|</span>
+    <span class="o">|</span>       <span class="o">|</span>
+    <span class="n">V</span>       <span class="o">|</span>
+<span class="p">[</span><span class="n">For</span> <span class="n">Body</span><span class="p">]</span>  <span class="o">|</span>
+    <span class="o">|</span>       <span class="o">|</span>
+    <span class="n">V</span>       <span class="o">|</span>
+  <span class="n">Update</span>    <span class="o">|</span>
+    <span class="o">|</span><span class="n">_______</span><span class="o">|</span>
+</pre></div>
+</div>
+<p>对于for语句，这三个部分都是 <strong>可选</strong> 的，也就是说，这三个部分可以全部留空（但是要保留 <code class="code docutils literal notranslate"><span class="pre">;</span></code> ），这时候的for语句头是: <code class="code docutils literal notranslate"><span class="pre">for</span> <span class="pre">(;;)</span> <span class="pre">...</span></code> 。这个时候的for循环相当于 <code class="code docutils literal notranslate"><span class="pre">while</span> <span class="pre">true</span> <span class="pre">...</span></code> 。实际上，只要 <em>Condition</em> 部分是空时，就可以达到这种效果。除此之外，如果将 <em>Initialize</em> 部分留空，则不会有初始化行为；将 <em>Update</em> 留空，则不会有更新行为。</p>
+<div class="section" id="id4">
+<h3><span class="section-number">7.3.1. </span>格式要求<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>对于for语句块的 <code class="code docutils literal notranslate"><span class="pre">{</span></code> ，要和 <code class="code docutils literal notranslate"><span class="pre">for</span> <span class="pre">...</span></code> 在同一行。</p>
+</div>
+</div>
+<div class="section" id="breakcontinue">
+<h2><span class="section-number">7.4. </span>break与continue<a class="headerlink" href="#breakcontinue" title="永久链接至标题">¶</a></h2>
+<p>break语句用于跳出循环，包括while循环和for循环。当执行到break语句时，程序将跳转到离开循环的下一条语句进行。</p>
+<p>continue语句用于 <strong>跳过</strong> 本次循环（注意不是跳出）。当执行到continue语句时，将跳过该语句下面的内容，会到循环的判断部分，如果是for循环，则仍会执行 <em>Update</em> 部分。</p>
+<p>break语句和continue语句在try语句中被执行时，finally部分的内容仍然会被执行。</p>
+</div>
+<div class="section" id="try-catch-finally">
+<h2><span class="section-number">7.5. </span>try-catch-finally语句<a class="headerlink" href="#try-catch-finally" title="永久链接至标题">¶</a></h2>
+<p>try-catch-finally语句（以下简称try语句）用于进行异常捕获或者用于执行一些必须要执行的代码。语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>try_stmt := try_with_catch | try_finally_only
+
+try_with_catch := &#39;try&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39; &#39;catch&#39; NAME &#39;{&#39;
+    stmt*
+&#39;}&#39; [&#39;finally&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39;]?
+
+try_finally_only := &#39;try&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39; &#39;finally&#39; &#39;{&#39;
+    stmt*
+&#39;}&#39;
+</pre></div>
+</div>
+<p>try 语句块内的代码，通常是可能会引发异常的代码。当try内又异常被抛出后， <em>如果有catch块</em> 则程序会立即跳转到catch块内，并且将被捕获的异常赋值给 <em>NAME</em> 变量。</p>
+<p>而finally保证了无论是否有异常发生，块内的代码总是会被执行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+    <span class="mi">0</span> <span class="o">/</span> <span class="mi">1</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;here is finallyA&#39;</span>
+<span class="p">}</span>
+
+<span class="k">try</span> <span class="p">{</span>
+    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="p">}</span> <span class="k">finally</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;here is finallyB&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>执行结果：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">here</span> <span class="ow">is</span> <span class="n">finallyA</span>
+<span class="n">here</span> <span class="ow">is</span> <span class="n">finallyB</span>
+<span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
+  <span class="n">File</span> <span class="s1">&#39;test_finally.ail&#39;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">7</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">main</span><span class="o">&gt;</span>
+    <span class="mi">1</span> <span class="o">/</span> <span class="mi">0</span>
+<span class="ne">ZeroDivisionError</span><span class="p">:</span> <span class="n">division</span> <span class="n">by</span> <span class="n">zero</span>
+</pre></div>
+</div>
+<p>可以看到，无论异常是否发生，即使没有catch进行捕获，finally的内容让仍然会被执行。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="lexical.html" class="btn btn-neutral float-left" title="6. 词法分析" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

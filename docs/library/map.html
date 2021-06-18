@@ -1,0 +1,256 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>map – 提供基本 HashMap 操作 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="AIL 语言参考手册" href="../reference/index.html" />
+    <link rel="prev" title="builtins – 内建模块" href="builtins.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">标准库参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="builtins.html">builtins</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">map</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#type-hash-map">type hash_map</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash-map-put-key-hashable-value">hash_map.put(key: hashable, value)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hash-map-get-key-hashable-default-null-object">hash_map.get(key: hashable, default=null) -&gt; object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#map-map-hash-map">map.map() -&gt; hash_map</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">语言参考</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 标准库参考</a> &raquo;</li>
+        
+      <li>map – 提供基本 HashMap 操作</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/library/map.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="map-hashmap">
+<h1>map – 提供基本 HashMap 操作<a class="headerlink" href="#map-hashmap" title="永久链接至标题">¶</a></h1>
+<p>map模块用于 <em>(暂时)</em> 填补AIL语言不支持map数据类型的空缺。</p>
+<blockquote>
+<div><p><em>本文中的REPL表示均事先加载了 map 模块</em></p>
+</div></blockquote>
+<div class="section" id="type-hash-map">
+<h2>type hash_map<a class="headerlink" href="#type-hash-map" title="永久链接至标题">¶</a></h2>
+<p>hash_map 类型 <strong>(属于内置struct类型，不可被初始化)</strong> 用于表示一个散列映射表</p>
+</div>
+<div class="section" id="hash-map-put-key-hashable-value">
+<h2>hash_map.put(key: hashable, value)<a class="headerlink" href="#hash-map-put-key-hashable-value" title="永久链接至标题">¶</a></h2>
+<p>hash_map.put用于在hash_map对象中放入 <strong>键-值对</strong> 。若 key 不可进行hash化，则会抛出 <strong>UnhashableError</strong> 。</p>
+</div>
+<div class="section" id="hash-map-get-key-hashable-default-null-object">
+<h2>hash_map.get(key: hashable, default=null) -&gt; object<a class="headerlink" href="#hash-map-get-key-hashable-default-null-object" title="永久链接至标题">¶</a></h2>
+<p>hash_map.get用于在hash_map对象中根据key来获取相对应的value，若key不存在，则返回default值 <em>(默认是null)</em> 。若key不可进行hash化，则抛出 <strong>UnhashableError</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">m</span> <span class="o">=</span> <span class="nb">map</span><span class="p">()</span>
+<span class="o">&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">put</span><span class="p">(</span><span class="s1">&#39;NezhaAge&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;NezhaAge&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="n">m</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;foo&#39;</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="o">//</span> <span class="n">null</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="map-map-hash-map">
+<h2>map.map() -&gt; hash_map<a class="headerlink" href="#map-map-hash-map" title="永久链接至标题">¶</a></h2>
+<p>该函数返回一个空的hash_map对象</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="../reference/index.html" class="btn btn-neutral float-right" title="AIL 语言参考手册" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="builtins.html" class="btn btn-neutral float-left" title="builtins – 内建模块" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

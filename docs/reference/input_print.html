@@ -1,0 +1,253 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>5. 基本输入和输出 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="6. 词法分析" href="lexical.html" />
+    <link rel="prev" title="4. 结构体" href="struct.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">2. 基本类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">3. 名称空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html">4. 结构体</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">5. 基本输入和输出</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#print">5.1. print语句</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#input">5.2. input语句</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">5.3. 题外话：更为灵活的输入输出</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="lexical.html">6. 词法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ctrl_flow.html">7. 基本控制流</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">5. </span>基本输入和输出</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/input_print.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">5. </span>基本输入和输出<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>AIL提供了最基本的对 <code class="code docutils literal notranslate"><span class="pre">stdout</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">stdin</span></code> 写入和读取的操作方式: <code class="code docutils literal notranslate"><span class="pre">print</span></code> 和 <code class="code docutils literal notranslate"><span class="pre">input</span></code> 。input 和 print 在AIL中都已 <strong>关键字</strong> 的形式存在。</p>
+<div class="section" id="print">
+<h2><span class="section-number">5.1. </span>print语句<a class="headerlink" href="#print" title="永久链接至标题">¶</a></h2>
+<p>print语句是最简单的向输出流写入数据的方式。其语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="n">expr</span> <span class="p">[</span><span class="s1">&#39;;&#39;</span> <span class="n">expr</span><span class="p">]</span><span class="o">*</span>
+</pre></div>
+</div>
+<p><em>expr</em> 可以是任意表达式。多个表达式用 <code class="code docutils literal notranslate"><span class="pre">;</span></code> 隔开。</p>
+</div>
+<div class="section" id="input">
+<h2><span class="section-number">5.2. </span>input语句<a class="headerlink" href="#input" title="永久链接至标题">¶</a></h2>
+<p>input语句是最简单的向输入流读取数据的方式。其语法如下：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">input</span> <span class="n">expr</span> <span class="p">[</span><span class="s1">&#39;;&#39;</span> <span class="n">NAME</span> <span class="p">[</span><span class="s1">&#39;,&#39;</span> <span class="n">NAME</span><span class="p">]</span><span class="o">*</span><span class="p">]</span><span class="o">*</span>
+</pre></div>
+</div>
+<p><em>expr</em> 可以是任意表达式，作为提示 <em>(prompt)</em> 使用。 <em>NAME</em> 作为存储输入的变量名，可以有多个 <em>NAME</em> ，用 <code class="code docutils literal notranslate"><span class="pre">;</span></code> 隔开。当input语句成功执行完毕后，会在 <strong>当前名称空间</strong> 中储存输入内容到该作为该变量名的变量。如果是有多个变量名，则会对输入的内容使用 <strong>空格</strong> 分割，再分别按顺序存入各个变量中。如果又提供了多个变量名，却按照分割的数量和提供的变量名数量 <strong>不相等</strong> ，则抛出 <code class="code docutils literal notranslate"><span class="pre">ValueError</span></code> 异常。</p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">5.3. </span>题外话：更为灵活的输入输出<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>若想进行更灵活的控制台输入输出，可以使用内置的 console 对象。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="lexical.html" class="btn btn-neutral float-right" title="6. 词法分析" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="struct.html" class="btn btn-neutral float-left" title="4. 结构体" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

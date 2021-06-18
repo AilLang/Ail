@@ -1,0 +1,614 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>builtins – 内建模块 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="map – 提供基本 HashMap 操作" href="map.html" />
+    <link rel="prev" title="AIL 标准库参考" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">标准库参考</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">builtins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#type-string">type string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-integer">type integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-float">type float</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-array">type array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-ccom-t">type CCOM_T</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-iobuffer-t">type iobuffer_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-longish">type longish</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-fast-number">type fast_number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-struct-type">type struct_type</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-object">type object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-any">type any</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-null">type null</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#type-bool">type bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#union-number">union number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-null-null">var null: null</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-true-bool">var true: bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-false-bool">var false: bool</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-version-string">var __version__: string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-main-version-integer">var __main_version__: integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#var-console-console">var console: console</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-abs-x-number-number">builtins.abs(x: number) -&gt; number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-ng-x-number-number">builtins.ng(x: number) -&gt; number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-int-input-prompt-string-integer">builtins.int_input(prompt: string) -&gt; integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-chr-x-integer-string">builtins.chr(x: integer) -&gt; string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-ord-x-string-integer">builtins.ord(x: string) -&gt; integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-hex-x-integer-string">builtins.hex(x: integer) -&gt; string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-new-type-struct-type-default-list-array-object">builtins.new(type: struct_type, default_list: array={}) -&gt; object</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-len-x-longish-integer">builtins.len(x: longish) -&gt; integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-equal-a-any-b-any-boolean">builtins.equal(a: any, b: any) -&gt; boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-equal-type-a-any-b-any-boolean">builtins.equal_type(a: any, b: any) -&gt; boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-array-size-integer-array">builtins.array(size: integer) -&gt; array</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-isinstance-obj-any-type-struct-type-boolean">builtins.isinstance(obj: any, type: struct_type) -&gt; boolean</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-str-x-any-string">builtins.str(x: any) -&gt; string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-int-x-number-integer">builtins.int(x: number) -&gt; integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-repr-x-any-string">builtins.repr(x: any) -&gt; string</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-open-fp-string-mode-string-iobuffer-t">builtins.open(fp: string, mode: string) -&gt; iobuffer_t</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-addr-obj-any-integer">builtins.addr(obj: any) -&gt; integer</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-get-ccom-ccom-t">builtins._get_ccom() -&gt; CCOM_T</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-fnum-num-number-fast-number">builtins.fnum(num: number) -&gt; fast_number</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#builtins-type-obj-any-integer">builtins.type(obj: any) -&gt; integer</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="map.html">map</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">语言参考</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 标准库参考</a> &raquo;</li>
+        
+      <li>builtins – 内建模块</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/library/builtins.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="builtins">
+<h1>builtins – 内建模块<a class="headerlink" href="#builtins" title="永久链接至标题">¶</a></h1>
+<p><em>(构建中…)</em></p>
+<p>builtins是AIL运行时启动后自动加载的 <strong>“模块”</strong> ，提供了一些基本的操作。</p>
+<p><strong>注意: builtins模块实现abuiltins.py并不被设计成为AIL的扩展模块</strong></p>
+<p><em>builtins实现可以查看源码: ail/core/abuiltins.py</em></p>
+<div class="section" id="type-string">
+<h2>type string<a class="headerlink" href="#type-string" title="永久链接至标题">¶</a></h2>
+<p>表示基本字符串</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="s1">&#39;nezha&#39;</span>
+<span class="s1">&#39;nezha&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="s2">&quot;Nezha&quot;</span>
+<span class="s1">&#39;Nezha&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-integer">
+<h2>type integer<a class="headerlink" href="#type-integer" title="永久链接至标题">¶</a></h2>
+<p>表示整数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="mi">3</span>
+<span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="o">-</span><span class="mi">15</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="mi">15</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-float">
+<h2>type float<a class="headerlink" href="#type-float" title="永久链接至标题">¶</a></h2>
+<p>表示64位浮点数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="mi">10</span> <span class="o">/</span> <span class="mi">3</span>
+<span class="o">&lt;</span> <span class="mf">3.3333333333333335</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="mf">1.0</span>
+<span class="o">&lt;</span> <span class="mf">1.0</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="mi">3</span> <span class="o">/</span> <span class="mf">1.0</span>  <span class="o">//</span> <span class="n">convert</span> <span class="n">to</span> <span class="nb">float</span>
+<span class="o">&lt;</span> <span class="mf">3.0</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-array">
+<h2>type array<a class="headerlink" href="#type-array" title="永久链接至标题">¶</a></h2>
+<p>表示定长数组类型。其容纳的类型是任意的。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="p">{</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="s1">&#39;3&#39;</span><span class="p">,</span> <span class="n">fnum</span><span class="p">(</span><span class="mi">4</span><span class="p">),</span> <span class="n">_get_ccom</span><span class="p">}</span>
+<span class="p">{</span>
+    <span class="o">&lt;</span> <span class="mi">1</span> <span class="o">&gt;</span><span class="p">,</span>
+    <span class="o">&lt;</span> <span class="mf">2.0</span> <span class="o">&gt;</span><span class="p">,</span>
+    <span class="s1">&#39;3&#39;</span><span class="p">,</span>
+    <span class="o">&lt;</span> <span class="mi">4</span> <span class="o">&gt;</span><span class="p">,</span>
+    <span class="o">&lt;</span><span class="n">AIL</span> <span class="n">Python</span> <span class="n">function</span> <span class="n">wrapper</span> <span class="s1">&#39;get_cc_object&#39;</span> <span class="n">at</span> <span class="mh">0x7d97609c40</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><em>（由于输出过长，上面REPL部分输出经过调整，实际输出并没有换行）</em></p>
+</div>
+<div class="section" id="type-ccom-t">
+<h2>type CCOM_T<a class="headerlink" href="#type-ccom-t" title="永久链接至标题">¶</a></h2>
+<p>由 <code class="code docutils literal notranslate"><span class="pre">_get_ccom()</span></code> 函数返回其对象。不能被实例化。</p>
+</div>
+<div class="section" id="type-iobuffer-t">
+<h2>type iobuffer_t<a class="headerlink" href="#type-iobuffer-t" title="永久链接至标题">¶</a></h2>
+<p>文件IO缓冲类型，由 <code class="code docutils literal notranslate"><span class="pre">open(...)</span></code> 返回其对象。用于对文件进行操作。不能被初始化。</p>
+</div>
+<div class="section" id="type-longish">
+<h2>type longish<a class="headerlink" href="#type-longish" title="永久链接至标题">¶</a></h2>
+<p>具有长度的对象，即可以使用 <code class="code docutils literal notranslate"><span class="pre">len(...)</span></code> 的对象。
+一般情况下，longish对象包括:</p>
+<ul class="simple">
+<li><p>string</p></li>
+<li><p>array</p></li>
+</ul>
+</div>
+<div class="section" id="type-fast-number">
+<h2>type fast_number<a class="headerlink" href="#type-fast-number" title="永久链接至标题">¶</a></h2>
+<p>fast_number 类型是AIL中的特殊类型。由 <code class="code docutils literal notranslate"><span class="pre">fnum(...)</span></code> 返回其对象。不能被初始化。引入的目的是为了使得AIL运行得更快。
+fast_number 之间的运算相比普通的数字类型运算，效率会高很多。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">fnum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">1</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">=</span> <span class="n">fnum</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">b</span> <span class="o">=</span> <span class="n">fnum</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+<span class="o">&lt;</span> <span class="mi">35</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-struct-type">
+<h2>type struct_type<a class="headerlink" href="#type-struct-type" title="永久链接至标题">¶</a></h2>
+<p><strong>struct类型</strong> 类型。struct_type 用于生成struct_object, 即 <strong>object</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">struct</span> <span class="n">Person</span> <span class="ow">is</span>
+<span class="o">..</span>      <span class="n">name</span>
+<span class="o">..</span> <span class="n">end</span>
+<span class="o">&gt;&gt;</span> <span class="n">Person</span>  <span class="o">//</span> <span class="n">struct_type</span>
+<span class="o">&lt;</span><span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="n">at</span> <span class="mh">0x7d97631df0</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-object">
+<h2>type object<a class="headerlink" href="#type-object" title="永久链接至标题">¶</a></h2>
+<p><strong>object</strong> 指struct_type经过实例化后，得到的 <strong>struct_object</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">struct</span> <span class="n">Person</span> <span class="ow">is</span>
+<span class="o">..</span>      <span class="n">name</span>
+<span class="o">..</span> <span class="n">end</span>
+<span class="o">&gt;&gt;</span> <span class="n">Person</span>
+<span class="o">&lt;</span><span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="n">at</span> <span class="mh">0x7d97631df0</span><span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x7d973c0340</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-any">
+<h2>type any<a class="headerlink" href="#type-any" title="永久链接至标题">¶</a></h2>
+<p>表示任意类型。</p>
+</div>
+<div class="section" id="type-null">
+<h2>type null<a class="headerlink" href="#type-null" title="永久链接至标题">¶</a></h2>
+<p>null 类型。</p>
+</div>
+<div class="section" id="type-bool">
+<h2>type bool<a class="headerlink" href="#type-bool" title="永久链接至标题">¶</a></h2>
+<p>表示布尔类型。</p>
+</div>
+<div class="section" id="union-number">
+<h2>union number<a class="headerlink" href="#union-number" title="永久链接至标题">¶</a></h2>
+<p>表示 <strong>float类型</strong> 或者 <strong>integer类型</strong> 。</p>
+</div>
+<div class="section" id="var-null-null">
+<h2>var null: null<a class="headerlink" href="#var-null-null" title="永久链接至标题">¶</a></h2>
+<p>null 表示“空”，在AIL中，null是一个变量名，一般情况下，null可以被赋值 <em>（但不建议这么做）</em> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="k">if</span> <span class="n">null</span> <span class="n">then</span>
+<span class="o">..</span>     <span class="nb">print</span> <span class="s1">&#39;Should not be printed&#39;</span>
+<span class="o">..</span> <span class="n">end</span>
+<span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="var-true-bool">
+<h2>var true: bool<a class="headerlink" href="#var-true-bool" title="永久链接至标题">¶</a></h2>
+<p>表示“真”。</p>
+</div>
+<div class="section" id="var-false-bool">
+<h2>var false: bool<a class="headerlink" href="#var-false-bool" title="永久链接至标题">¶</a></h2>
+<p>表示“假”。</p>
+</div>
+<div class="section" id="var-version-string">
+<h2>var __version__: string<a class="headerlink" href="#var-version-string" title="永久链接至标题">¶</a></h2>
+<p>AIL版本字符串。</p>
+</div>
+<div class="section" id="var-main-version-integer">
+<h2>var __main_version__: integer<a class="headerlink" href="#var-main-version-integer" title="永久链接至标题">¶</a></h2>
+<p>AIL主版本号。</p>
+</div>
+<div class="section" id="var-console-console">
+<h2>var console: console<a class="headerlink" href="#var-console-console" title="永久链接至标题">¶</a></h2>
+<p>用于操作控制台的对象</p>
+</div>
+<div class="section" id="builtins-abs-x-number-number">
+<h2>builtins.abs(x: number) -&gt; number<a class="headerlink" href="#builtins-abs-x-number-number" title="永久链接至标题">¶</a></h2>
+<p>提供了取绝对值操作。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">726</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">726</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">abs</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">726</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-ng-x-number-number">
+<h2>builtins.ng(x: number) -&gt; number<a class="headerlink" href="#builtins-ng-x-number-number" title="永久链接至标题">¶</a></h2>
+<p>提供了将正数取反的操作。</p>
+<p><em>最早的AIL并不支持表示负数，需要使用这个函数取负数</em></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">ng</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">726</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="n">ng</span><span class="p">(</span><span class="o">-</span><span class="mi">726</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="mi">726</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-int-input-prompt-string-integer">
+<h2>builtins.int_input(prompt: string) -&gt; integer<a class="headerlink" href="#builtins-int-input-prompt-string-integer" title="永久链接至标题">¶</a></h2>
+<p>提供了整数输入操作，若接受了一个非数字输入，则抛出 <code class="code docutils literal notranslate"><span class="pre">ValueError</span></code> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">int_input</span><span class="p">(</span><span class="s1">&#39;What is your score: &#39;</span><span class="p">)</span>
+<span class="n">What</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">score</span><span class="p">:</span> <span class="mi">150</span>
+<span class="o">&lt;</span> <span class="mi">150</span> <span class="o">&gt;</span>
+
+<span class="o">&gt;&gt;</span> <span class="n">int_input</span><span class="p">(</span><span class="s1">&#39;What is your score: &#39;</span><span class="p">)</span>
+<span class="n">What</span> <span class="ow">is</span> <span class="n">your</span> <span class="n">score</span><span class="p">:</span> <span class="n">A</span><span class="o">+</span>
+<span class="ow">in</span> <span class="s1">&#39;&lt;shell&gt;&#39;</span> <span class="o">+</span> <span class="mi">4</span> <span class="p">:</span>
+    <span class="ne">ValueError</span> <span class="p">:</span> <span class="n">invalid</span> <span class="n">literal</span> <span class="k">for</span> <span class="nb">int</span><span class="p">()</span> <span class="k">with</span> <span class="n">base</span> <span class="mi">10</span><span class="p">:</span> <span class="s1">&#39;A+&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-chr-x-integer-string">
+<h2>builtins.chr(x: integer) -&gt; string<a class="headerlink" href="#builtins-chr-x-integer-string" title="永久链接至标题">¶</a></h2>
+<p>返回一个Unicode字符，值介于 [0, 0x10FFFF]，若超出该范围，则抛出 <code class="code docutils literal notranslate"><span class="pre">PythonError</span></code> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span>
+<span class="s1">&#39;3&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">chr</span><span class="p">(</span><span class="o">-</span><span class="mi">51</span><span class="p">)</span>
+<span class="ow">in</span> <span class="s1">&#39;&lt;shell&gt;&#39;</span> <span class="o">+</span> <span class="mi">4</span> <span class="p">:</span>
+    <span class="n">PythonError</span> <span class="p">:</span> <span class="nb">chr</span><span class="p">()</span> <span class="n">arg</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mh">0x110000</span><span class="p">)</span>
+</pre></div>
+</div>
+<p><em>将在未来版本修改为 UnicodeError</em></p>
+</div>
+<div class="section" id="builtins-ord-x-string-integer">
+<h2>builtins.ord(x: string) -&gt; integer<a class="headerlink" href="#builtins-ord-x-string-integer" title="永久链接至标题">¶</a></h2>
+<p>返回 <strong>单字符字符串</strong> <code class="code docutils literal notranslate"><span class="pre">x</span></code> 的 <strong>Unicode Point</strong> 。若x不符合要求，则抛出 <code class="code docutils literal notranslate"><span class="pre">PythonError</span></code> 。</p>
+<p><strong>x 必须是单字符字符串，即len(x) == 1</strong></p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;N&#39;</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">78</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">ord</span><span class="p">(</span><span class="s1">&#39;NZ&#39;</span><span class="p">)</span>
+<span class="ow">in</span> <span class="s1">&#39;&lt;shell&gt;&#39;</span> <span class="o">+</span> <span class="mi">4</span> <span class="p">:</span>
+    <span class="n">PythonError</span> <span class="p">:</span> <span class="nb">ord</span><span class="p">()</span> <span class="n">expected</span> <span class="n">a</span> <span class="n">character</span><span class="p">,</span> <span class="n">but</span> <span class="n">string</span> <span class="n">of</span> <span class="n">length</span> <span class="mi">2</span> <span class="n">found</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-hex-x-integer-string">
+<h2>builtins.hex(x: integer) -&gt; string<a class="headerlink" href="#builtins-hex-x-integer-string" title="永久链接至标题">¶</a></h2>
+<p>返回以’0x’开头的 x 的十六进制形式。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">hex</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="s1">&#39;0x2d6&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-new-type-struct-type-default-list-array-object">
+<h2>builtins.new(type: struct_type, default_list: array={}) -&gt; object<a class="headerlink" href="#builtins-new-type-struct-type-default-list-array-object" title="永久链接至标题">¶</a></h2>
+<p>实例化 struct 类型，返回 struct 对象。</p>
+<p><code class="code docutils literal notranslate"><span class="pre">default_list</span></code> 是 <em>可选</em> 的。若不提供 <code class="code docutils literal notranslate"><span class="pre">default_list</span></code> ，则返回的对象的所有属性都为 <strong>null</strong> 若提供 <code class="code docutils literal notranslate"><span class="pre">default_list</span></code> ，则会 <strong>按照struct_type属性的顺序</strong>  依次初始化。</p>
+<p>** default_list 的长度必须等于 struct_type 成员的数量！ **</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">struct</span> <span class="n">Person</span> <span class="ow">is</span>
+<span class="o">..</span>      <span class="n">name</span>
+<span class="o">..</span>      <span class="n">age</span>
+<span class="o">..</span> <span class="n">end</span>
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="o">&lt;</span><span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x339e520</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="p">:</span> <span class="n">null</span>
+        <span class="n">age</span> <span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span>
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Nezha&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="o">&lt;</span><span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="nb">object</span> <span class="n">at</span> <span class="mh">0x339e0a0</span><span class="o">&gt;</span> <span class="o">-&gt;</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="p">:</span> <span class="s1">&#39;Nezha&#39;</span>
+        <span class="n">age</span> <span class="p">:</span> <span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&gt;</span>
+<span class="p">}</span>
+<span class="o">&gt;&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Nezha&#39;</span><span class="p">})</span>
+<span class="ow">in</span> <span class="s1">&#39;&lt;shell&gt;&#39;</span> <span class="o">+</span> <span class="mi">8</span> <span class="p">:</span>
+        <span class="ne">TypeError</span> <span class="p">:</span> <span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="n">initialize</span> <span class="n">missing</span> <span class="mi">2</span> <span class="n">required</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="p">:</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">age</span><span class="p">)</span>
+<span class="o">&gt;&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="p">{</span><span class="s1">&#39;Nezha&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">})</span>
+<span class="ow">in</span> <span class="s1">&#39;&lt;shell&gt;&#39;</span> <span class="o">+</span> <span class="mi">12</span> <span class="p">:</span>
+        <span class="ne">TypeError</span> <span class="p">:</span> <span class="n">struct</span> <span class="s1">&#39;Person&#39;</span> <span class="n">initialize</span> <span class="n">takes</span> <span class="mi">2</span> <span class="n">argument</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="n">but</span> <span class="mi">3</span> <span class="n">were</span> <span class="n">given</span>
+<span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-len-x-longish-integer">
+<h2>builtins.len(x: longish) -&gt; integer<a class="headerlink" href="#builtins-len-x-longish-integer" title="永久链接至标题">¶</a></h2>
+<p>返回 longish对象 x 的长度。</p>
+</div>
+<div class="section" id="builtins-equal-a-any-b-any-boolean">
+<h2>builtins.equal(a: any, b: any) -&gt; boolean<a class="headerlink" href="#builtins-equal-a-any-b-any-boolean" title="永久链接至标题">¶</a></h2>
+<p>比较x, y是否相等。<strong>比较的对象是两者的地址</strong>。</p>
+<p>但是对于 string, integer 可以直接比较其内容 <em>(float 不可以)</em>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">equal</span><span class="p">(</span><span class="s1">&#39;Nezha&#39;</span><span class="p">,</span> <span class="s1">&#39;NEZHA&#39;</span><span class="p">)</span>
+<span class="n">false</span>
+<span class="o">&gt;&gt;</span> <span class="n">equal</span><span class="p">(</span><span class="s1">&#39;Nezha&#39;</span><span class="p">,</span> <span class="s1">&#39;Nezha&#39;</span><span class="p">)</span>
+<span class="n">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-equal-type-a-any-b-any-boolean">
+<h2>builtins.equal_type(a: any, b: any) -&gt; boolean<a class="headerlink" href="#builtins-equal-type-a-any-b-any-boolean" title="永久链接至标题">¶</a></h2>
+<p>比较x, y的类型。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">equal_type</span><span class="p">(</span><span class="mi">726</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">true</span>
+<span class="o">&gt;&gt;</span> <span class="n">equal_type</span><span class="p">({</span><span class="mi">1</span><span class="p">},</span> <span class="p">{</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="n">true</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-array-size-integer-array">
+<h2>builtins.array(size: integer) -&gt; array<a class="headerlink" href="#builtins-array-size-integer-array" title="永久链接至标题">¶</a></h2>
+<p>返回一个长度为 <strong>size</strong> 的数组。其内容被初始化为 <strong>null</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="n">array</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="p">{</span><span class="n">null</span><span class="p">,</span> <span class="n">null</span><span class="p">,</span> <span class="n">null</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-isinstance-obj-any-type-struct-type-boolean">
+<h2>builtins.isinstance(obj: any, type: struct_type) -&gt; boolean<a class="headerlink" href="#builtins-isinstance-obj-any-type-struct-type-boolean" title="永久链接至标题">¶</a></h2>
+<p>返回 <code class="code docutils literal notranslate"><span class="pre">obj</span></code> 是否是 <code class="code docutils literal notranslate"><span class="pre">type</span></code> 类型的对象， <strong>一般用于 struct 类型和对象的比较</strong>。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">),</span> <span class="n">Person</span><span class="p">)</span>
+<span class="n">true</span>
+<span class="o">&gt;&gt;</span> <span class="nb">isinstance</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">Person</span><span class="p">)</span>
+<span class="n">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-str-x-any-string">
+<h2>builtins.str(x: any) -&gt; string<a class="headerlink" href="#builtins-str-x-any-string" title="永久链接至标题">¶</a></h2>
+<p>返回 <code class="code docutils literal notranslate"><span class="pre">x</span></code> 的 <strong>字符串形式</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="s1">&#39;726&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">str</span><span class="p">({</span><span class="mi">726</span><span class="p">,</span> <span class="mi">3</span><span class="p">})</span>
+<span class="s1">&#39;{&lt; 726 &gt;, &lt; 3 &gt;}&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">))</span>
+<span class="s1">&#39;&lt;struct &#39;</span><span class="n">Person</span><span class="s1">&#39; object at 0x33aba00&gt; -&gt; {</span>
+        <span class="n">name</span> <span class="p">:</span> <span class="n">null</span>
+        <span class="n">age</span> <span class="p">:</span> <span class="n">null</span>
+<span class="p">}</span><span class="s1">&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="s1">&#39;&lt;struct &#39;</span><span class="n">Person</span><span class="s1">&#39; at 0x3393b20&gt;&#39;</span>
+<span class="o">&gt;&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-int-x-number-integer">
+<h2>builtins.int(x: number) -&gt; integer<a class="headerlink" href="#builtins-int-x-number-integer" title="永久链接至标题">¶</a></h2>
+<p>将 x 转换成整数。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="mf">3.0</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="mi">3</span> <span class="o">&gt;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">int</span><span class="p">(</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
+<span class="o">&lt;</span> <span class="o">-</span><span class="mi">10</span> <span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-repr-x-any-string">
+<h2>builtins.repr(x: any) -&gt; string<a class="headerlink" href="#builtins-repr-x-any-string" title="永久链接至标题">¶</a></h2>
+<p>返回 <code class="code docutils literal notranslate"><span class="pre">x</span></code> 的 <strong>描述(repr)</strong> 形式。repr形式一般被在REPL环境中输出， <strong>请留意与 str(…) 的区别</strong> 。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">repr</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="s1">&#39;&lt; 726 &gt;&#39;</span>
+<span class="o">&gt;&gt;</span> <span class="nb">str</span><span class="p">(</span><span class="mi">726</span><span class="p">)</span>
+<span class="s1">&#39;726&#39;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="builtins-open-fp-string-mode-string-iobuffer-t">
+<h2>builtins.open(fp: string, mode: string) -&gt; iobuffer_t<a class="headerlink" href="#builtins-open-fp-string-mode-string-iobuffer-t" title="永久链接至标题">¶</a></h2>
+<p>打开一个文件，根据 <code class="code docutils literal notranslate"><span class="pre">mode</span></code> 返回一个相对应模式的IO对象。</p>
+</div>
+<div class="section" id="builtins-addr-obj-any-integer">
+<h2>builtins.addr(obj: any) -&gt; integer<a class="headerlink" href="#builtins-addr-obj-any-integer" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="builtins-get-ccom-ccom-t">
+<h2>builtins._get_ccom() -&gt; CCOM_T<a class="headerlink" href="#builtins-get-ccom-ccom-t" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="builtins-fnum-num-number-fast-number">
+<h2>builtins.fnum(num: number) -&gt; fast_number<a class="headerlink" href="#builtins-fnum-num-number-fast-number" title="永久链接至标题">¶</a></h2>
+</div>
+<div class="section" id="builtins-type-obj-any-integer">
+<h2>builtins.type(obj: any) -&gt; integer<a class="headerlink" href="#builtins-type-obj-any-integer" title="永久链接至标题">¶</a></h2>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="map.html" class="btn btn-neutral float-right" title="map – 提供基本 HashMap 操作" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="AIL 标准库参考" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

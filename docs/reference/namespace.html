@@ -1,0 +1,359 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>3. 名称空间 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="4. 结构体" href="struct.html" />
+    <link rel="prev" title="2. 基本类型" href="types.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">2. 基本类型</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3. 名称空间</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">3.1. 类型</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">3.2. 检索顺序</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">3.3. 结构与从属关系</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">3.4. 本地名称空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">3.5. 全局名称空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id7">3.6. 内置成员名称空间</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">3.7. 作用域声明</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#global">3.7.1. global声明</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#nonlocal">3.7.2. nonlocal声明</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id9">3.8. 查看名称空间</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html">4. 结构体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_print.html">5. 基本输入和输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical.html">6. 词法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ctrl_flow.html">7. 基本控制流</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">3. </span>名称空间</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/namespace.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">3. </span>名称空间<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">3.1. </span>类型<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>AIL的名称空间可分为3种：本地命名空间，全局命名空间，内置成员命名空间。</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">3.2. </span>检索顺序<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>当要检索一个名称时，如果没有特别指定，AIL会根据： <strong>本地名称空间 → 全局名称空间 → 内置成员名称空间</strong> 的顺序检索名称空间。</p>
+</div>
+<div class="section" id="id4">
+<h2><span class="section-number">3.3. </span>结构与从属关系<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h2>
+<p>各个名称空间的结构与从属关系为：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">[</span><span class="k">global</span>
+    <span class="p">[</span><span class="n">local</span>
+        <span class="p">[</span><span class="n">current</span> <span class="o">...</span><span class="p">]</span> <span class="o">+</span>
+        <span class="p">([</span><span class="k">nonlocal</span> <span class="o">...</span><span class="p">]</span> <span class="o">+</span> <span class="o">...</span> <span class="o">+</span> <span class="p">[</span><span class="k">nonlocal</span> <span class="o">...</span><span class="p">])</span>
+    <span class="p">]</span> <span class="o">...</span>
+<span class="p">]</span> <span class="o">+</span>
+<span class="p">[</span><span class="n">builtins</span> <span class="o">...</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">3.4. </span>本地名称空间<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>AIL中的本地名称空间包括： <strong>当前名称空间(和外部名称空间列表)</strong> 。</p>
+<p>其中，当前名称空间是离代码最近的一个名称空间，用户的代码就是在这个名称空间内执行的。如果没有特殊指定，AIL首先会检索这一个名称空间。</p>
+<p>如果执行的代码在函数之中，则可能会出现外部命名空间(列表)。这是因为在函数执行时，执行的函数可能处于另一个函数之中，即内嵌函数或闭包。为了能访问到外部函数的内容，本地名称空间会拥有一个对外部名称空间的 <strong>引用</strong> 。一般地，有几层外部函数，就有几个引用。</p>
+<p>需要注意的是， <strong>即使在全局域中，全局名称空间也不等于本地名称空间</strong> ，在全局域中进行变量的定义会将变量填入到 <strong>全局名称空间</strong> 中，在这种情况下，本地名称空间虽然存在且可以被访问，但不会有变量添加到里面。</p>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">3.5. </span>全局名称空间<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>AIL中，全局名称空间只有一个，用于存放全局成员，当进行import或者load时，也是使用全局名称空间的成员。</p>
+</div>
+<div class="section" id="id7">
+<h2><span class="section-number">3.6. </span>内置成员名称空间<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h2>
+<p>AIL中，内置成员名称空间是独立与其他名称空间的，同时，内置成员名称空间也是受保护的。</p>
+<p>不能改变内置名称空间中成员的值，在代码中对内置成员进行赋值。实际只是在全局名称空间中 <strong>挡住</strong> 原来的内置成员。</p>
+</div>
+<div class="section" id="id8">
+<h2><span class="section-number">3.7. </span>作用域声明<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h2>
+<p>为了实现跨名称空间进行变量的修改，AIL提供了作用域声明，即显式地声明变量的位置。AIL提供两种作用域声明： <strong>global</strong> , <strong>nonlocal</strong> 。</p>
+<div class="section" id="global">
+<h3><span class="section-number">3.7.1. </span>global声明<a class="headerlink" href="#global" title="永久链接至标题">¶</a></h3>
+<p>若在函数内想要对全局名称空间的变量进行修改时，可以在函数中对该变量进行global声明：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Nezha&#39;</span>
+
+<span class="n">fun</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="k">global</span> <span class="n">name</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Zhaer&#39;</span>
+<span class="p">}</span>
+
+<span class="nb">print</span> <span class="n">name</span>
+<span class="n">f</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">name</span>
+
+
+<span class="o">//</span> <span class="n">output</span> <span class="ow">is</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">Nezha</span>
+<span class="o">//</span> <span class="n">Zhaer</span>
+</pre></div>
+</div>
+<p>global声明可以写在函数内的任意位置，但为了美观起见，建议将global声明写在函数的起始位置（如上面的代码），或者可以写在第一次对变量进行修改的位置：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fun</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="o">//</span> <span class="o">...</span>
+
+    <span class="k">global</span> <span class="n">name</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Zhaer&#39;</span>
+
+    <span class="o">//...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>这是因为，global声明（和nonlocal声明）都是在编译期间完成，而作用于运行时的。且AIL不会因为global声明（或nonlocal声明）对产生的字节码做出修改。</p>
+</div>
+<div class="section" id="nonlocal">
+<h3><span class="section-number">3.7.2. </span>nonlocal声明<a class="headerlink" href="#nonlocal" title="永久链接至标题">¶</a></h3>
+<p>当变量在本地名称空间内，但却又不在当前名称空间内的时候，若要对变量进行修改，则需要对该变量进行nonlocal声明。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>name变量与当前名称空间的关系如下：
+
+[ -local-
+    [ -nonlocal-
+        name: &#39;Nezha&#39;
+    ],
+    [ -current-
+        ...
+    ]
+]
+</pre></div>
+</div>
+<p>和global声明类似，nonlocal声明对书写位置也不做要求。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fun</span> <span class="n">outer</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Nezha&#39;</span>
+    <span class="n">fun</span> <span class="n">inner</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">nonlocal</span> <span class="n">name</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Zhaer&#39;</span>
+    <span class="p">}</span>
+    <span class="nb">print</span> <span class="n">name</span>
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span> <span class="n">name</span>
+<span class="p">}</span>
+
+
+<span class="o">//</span> <span class="n">output</span> <span class="ow">is</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">Nezha</span>
+<span class="o">//</span> <span class="n">Zhaer</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id9">
+<h2><span class="section-number">3.8. </span>查看名称空间<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h2>
+<p>AIL提供了 <code class="code docutils literal notranslate"><span class="pre">globals()</span></code> 函数和 <code class="code docutils literal notranslate"><span class="pre">locals()</span></code> 函数来查看当前名称空间所具有的成员，但不能查看其值。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;</span> <span class="nb">locals</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;__temp__&#39;</span><span class="p">]</span>
+<span class="o">&gt;&gt;</span> <span class="nb">globals</span><span class="p">()</span>
+<span class="p">[</span><span class="s1">&#39;exit&#39;</span><span class="p">,</span> <span class="s1">&#39;copyright&#39;</span><span class="p">,</span> <span class="s1">&#39;__main__&#39;</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="struct.html" class="btn btn-neutral float-right" title="4. 结构体" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="types.html" class="btn btn-neutral float-left" title="2. 基本类型" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

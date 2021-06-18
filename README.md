@@ -160,13 +160,13 @@ python3 -m ail
 
 ## 文档
 
-AIL 的文档仍然在完善中。具体的进度可以在 `/docs/` 中查看。
+https://ail.rdpstudio.top
 
 ## AIL 代码转换细节
 
 想要了解 AIL 代码是如何转换成 Python 语法树的，可以查看：
 
- [ail_in_python](./docs/developer/ail_in_python.md)
+ [ail_in_python](./docsmd/developer/ail_in_python.md)
 
 ## tree.txt
 

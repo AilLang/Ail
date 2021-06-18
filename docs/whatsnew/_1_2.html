@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>AIL 1.2 更新日志 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">语言参考</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>AIL 1.2 更新日志</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/whatsnew/_1_2.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ail-1-2">
+<h1>AIL 1.2 更新日志<a class="headerlink" href="#ail-1-2" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id1">
+<h2>全新语法<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>AIL 1.2 版本不再推荐使用 <code class="code docutils literal notranslate"><span class="pre">then</span></code> , <code class="code docutils literal notranslate"><span class="pre">}if</span></code> 这类单词作为block的起始和终止标志，而选用更为方便的: <code class="code docutils literal notranslate"><span class="pre">{</span></code> <code class="code docutils literal notranslate"><span class="pre">}</span></code> 。</p>
+</div>
+<div class="section" id="id2">
+<h2>新增：闭包的支持<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>在1.2版本中，闭包正式被支持，现在您可以使用闭包来编写程序了。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">//</span> <span class="n">closure</span><span class="o">.</span><span class="n">ail</span>
+
+<span class="n">fun</span> <span class="n">f</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">x</span> <span class="o">=</span> <span class="mi">726</span>
+
+    <span class="n">fun</span> <span class="n">inner</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">inner</span>
+<span class="p">}</span>
+
+<span class="nb">print</span> <span class="n">f</span><span class="p">()()</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ ail ./closure.ail
+726
+</pre></div>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>新增：方法绑定<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>在1.2版本以前，想要给 <code class="code docutils literal notranslate"><span class="pre">struct</span> <span class="pre">object</span></code> 绑定方法，需要显式赋值：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="n">name</span>
+    <span class="n">say_hi</span>
+<span class="p">}</span>
+
+<span class="n">fun</span> <span class="n">say_hi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;hello, my name is&#39;</span> <span class="p">;</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span>
+<span class="p">}</span>
+
+<span class="n">nezha</span> <span class="o">=</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="n">nezha</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Nezha&#39;</span>
+<span class="n">nezha</span><span class="o">.</span><span class="n">say_hi</span> <span class="o">=</span> <span class="n">sai_hi</span>
+</pre></div>
+</div>
+<p>这种方法虽然行得通，但是经过考虑，这是极不优雅的。于是在AIL1.2版本中， <strong>方法绑定</strong> 被正式加入:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="n">name</span>
+<span class="p">}</span>
+
+<span class="n">fun</span> <span class="p">(</span><span class="n">Person</span><span class="p">)</span> <span class="n">say_hi</span><span class="p">()</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;hello, my name is&#39;</span> <span class="p">;</span> <span class="n">this</span><span class="o">.</span><span class="n">name</span>
+<span class="p">}</span>
+
+<span class="n">nezha</span> <span class="o">=</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">)</span>
+<span class="n">nezha</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">&#39;Nezha&#39;</span>
+</pre></div>
+</div>
+<p>Person，也就是被绑定者，必须是 <strong>struct type</strong> 。</p>
+</div>
+<div class="section" id="elif">
+<h2>新增：elif 语句<a class="headerlink" href="#elif" title="永久链接至标题">¶</a></h2>
+<p>在1.2以前，想要表示类似 <strong>if - else if - else</strong> 这类结构将极为繁琐。AIL1.2版本中，<code class="code docutils literal notranslate"><span class="pre">elif</span></code> 被加入。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">726</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;it is 726&#39;</span>
+<span class="p">}</span> <span class="k">elif</span> <span class="n">x</span> <span class="o">==</span> <span class="mi">1026</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;it is 1026&#39;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;it is 810？</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>elif 的加入让判断操作更为简便。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

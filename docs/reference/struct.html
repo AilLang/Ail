@@ -1,0 +1,329 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>4. 结构体 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="5. 基本输入和输出" href="input_print.html" />
+    <link rel="prev" title="3. 名称空间" href="namespace.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">2. 基本类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">3. 名称空间</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">4. 结构体</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">4.1. 结构体</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">4.1.1. 定义结构体</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">4.1.2. 结构体类型</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">4.1.3. 受保护成员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">4.1.4. 私有成员</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id7">4.1.5. 绑定方法</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id10">4.1.6. 实例化结构体</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id11">4.2. 结构体对象</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="input_print.html">5. 基本输入和输出</a></li>
+<li class="toctree-l2"><a class="reference internal" href="lexical.html">6. 词法分析</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ctrl_flow.html">7. 基本控制流</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">4. </span>结构体</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/struct.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">4. </span>结构体<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<p>AIL <strong>目前</strong> 没有class机制，取而代之的是struct。</p>
+<div class="section" id="id2">
+<h2><span class="section-number">4.1. </span>结构体<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<div class="section" id="id3">
+<h3><span class="section-number">4.1.1. </span>定义结构体<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>结构体定义语法：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">NAME</span> <span class="p">{</span>
+    <span class="p">[</span><span class="n">NAME</span> <span class="o">|</span> <span class="p">(</span><span class="s1">&#39;protected&#39;</span> <span class="n">NAME</span><span class="p">)</span> <span class="n">NEWLINE</span><span class="p">]</span><span class="o">*</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="n">name</span>
+    <span class="n">age</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>上面的代码定义了一个由两个成员(name和age)组成的结构体。</p>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">4.1.2. </span>结构体类型<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>结构体在AIL中的类型叫做结构体类型(struct type)，结构体类型用于作为模板实例化一个对象，其作用类似与 <em>类</em> 。</p>
+</div>
+<div class="section" id="id5">
+<h3><span class="section-number">4.1.3. </span>受保护成员<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h3>
+<p>若想要已经初始化的对象的成员不被修改，则可以使用 <code class="code docutils literal notranslate"><span class="pre">protected</span></code> 关键字修饰该成员。若成员被protected修饰，则请在初始化对象的时候就给这个成员提供值，否则只有在 <strong>绑定方法</strong> 内部才能去修改这个值。</p>
+</div>
+<div class="section" id="id6">
+<h3><span class="section-number">4.1.4. </span>私有成员<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h3>
+<p>当一个结构体成员不想被外部所访问到时，可以将其命名为私有成员。私有成员和一般成员、受保护成员不同，其命名是以 <strong>双下划线(__)</strong> 开头的。</p>
+<p>私有成员只能被绑定该结构体的绑定方法所访问和修改。</p>
+</div>
+<div class="section" id="id7">
+<h3><span class="section-number">4.1.5. </span>绑定方法<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>在AIL中，可以给一个结构体绑定函数，被绑定的 <em>函数</em> 因为类似于面向对象中的方法，所以叫 <strong>绑定方法</strong> 。</p>
+<p>绑定方法的定义是写在结构体之外的，是独立于结构体的。其写法与函数的定义有点类似：</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fun</span> <span class="s1">&#39;(&#39;</span> <span class="n">NAME</span> <span class="s1">&#39;)&#39;</span> <span class="n">NAME</span> <span class="s1">&#39;(&#39;</span> <span class="n">args</span> <span class="s1">&#39;)&#39;</span> <span class="n">function_body</span>
+</pre></div>
+</div>
+<p>和函数定义不同的是，方法的定义在fun后面加了一个name，这个name指的是 <strong>被绑定的结构体的名称</strong> 。</p>
+<p><strong>注意，绑定方法的定义只能与结构体处在同一命名空间中，且能够被直接访问到，即被绑定的结构体不能通过成员属性的访问、数组的下标等方式间接访问到，而是由名称直接指向该结构体。</strong></p>
+<p>通过绑定方法，可以访问并修改被绑定结构体中的protected成员。</p>
+<div class="section" id="id8">
+<h4><span class="section-number">4.1.5.1. </span>方法的参数<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h4>
+<p>绑定方法必须有 <strong>一个或一个以上的参数</strong> ，这是因为，方法的第一个参数传入的是被绑定都结构体的对象（即使在整个方法中都没有用到第一个参数），这个参数是由AIL传入的，不需要手动传入！</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fun</span> <span class="p">(</span><span class="n">Cat</span><span class="p">)</span> <span class="n">meow</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nb">print</span> <span class="s1">&#39;meow&#39;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="section" id="id9">
+<h5><span class="section-number">4.1.5.1.1. </span>命名建议<a class="headerlink" href="#id9" title="永久链接至标题">¶</a></h5>
+<p>如果在整个方法中都没有用到该参数，则建议将第一个参数命名为 <code class="code docutils literal notranslate"><span class="pre">_</span></code> ，否则建议命名为 <code class="code docutils literal notranslate"><span class="pre">self</span></code> 或者 <code class="code docutils literal notranslate"><span class="pre">this</span></code> 。</p>
+</div>
+</div>
+</div>
+<div class="section" id="id10">
+<h3><span class="section-number">4.1.6. </span>实例化结构体<a class="headerlink" href="#id10" title="永久链接至标题">¶</a></h3>
+<p>在AIL中，可以使用其内置的 <code class="code docutils literal notranslate"><span class="pre">new(...)</span></code> 函数来实例化结构体。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>new(struct, [defaults: array]) -&gt; struct_object
+
+:param struct 用于实例化的结构体类型
+:param default 实例化结构体时各个成员的默认值（可选）
+</pre></div>
+</div>
+<p>默认值以数组的形式提供，有几个成员，默认值列表就有几个值，不能多于或者少于。</p>
+</div>
+</div>
+<div class="section" id="id11">
+<h2><span class="section-number">4.2. </span>结构体对象<a class="headerlink" href="#id11" title="永久链接至标题">¶</a></h2>
+<p>结构体经过 <code class="code docutils literal notranslate"><span class="pre">new(...)</span></code> 函数实例化后，得到一个结构体对象。结构体对象可以访问或者修改其成员。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">struct</span> <span class="n">Person</span> <span class="p">{</span>
+    <span class="n">name</span>
+    <span class="n">__age</span>
+<span class="p">}</span>
+
+<span class="n">fun</span> <span class="p">(</span><span class="n">Person</span><span class="p">)</span> <span class="n">getAge</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="n">this</span><span class="o">.</span><span class="n">__age</span>
+<span class="p">}</span>
+
+<span class="n">nezha</span> <span class="o">=</span> <span class="n">new</span><span class="p">(</span><span class="n">Person</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;Nezha&#39;</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+
+<span class="nb">print</span> <span class="n">nezha</span><span class="o">.</span><span class="n">name</span><span class="p">;</span> <span class="n">nezha</span><span class="o">.</span><span class="n">getAge</span><span class="p">()</span>
+
+<span class="o">//</span> <span class="n">output</span><span class="p">:</span>
+<span class="o">//</span> <span class="n">Nezha</span> <span class="mi">3</span>
+</pre></div>
+</div>
+<p>如果结构体对象作为参数传递，则传递的是该结构体的 <strong>引用</strong> （结构体亦如此）。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="input_print.html" class="btn btn-neutral float-right" title="5. 基本输入和输出" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="namespace.html" class="btn btn-neutral float-left" title="3. 名称空间" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

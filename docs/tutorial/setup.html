@@ -1,0 +1,259 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>1. 搭建AIL运行环境 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="2. 将AIL用于计算" href="basic.html" />
+    <link rel="prev" title="AIL 教程" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">入门教程</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">1. 搭建AIL运行环境</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">1.1. 前期准备</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">1.2. 下载AIL</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">1.3. 安装AIL</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic.html">2. 将AIL用于计算</a></li>
+<li class="toctree-l2"><a class="reference internal" href="variable.html">3. 存储和使用变量</a></li>
+<li class="toctree-l2"><a class="reference internal" href="program.html">4. 基本AIL程序</a></li>
+<li class="toctree-l2"><a class="reference internal" href="basicstmt.html">5. 基本输入输出语句</a></li>
+<li class="toctree-l2"><a class="reference internal" href="controlflow.html">6. 基本流程控制语句</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../reference/index.html">语言参考</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 教程</a> &raquo;</li>
+        
+      <li><span class="section-number">1. </span>搭建AIL运行环境</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/tutorial/setup.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="ail">
+<h1><span class="section-number">1. </span>搭建AIL运行环境<a class="headerlink" href="#ail" title="永久链接至标题">¶</a></h1>
+<p>AIL使用Python编写，正因如此，AIL的运行环境配置十分简单。</p>
+<div class="section" id="id1">
+<h2><span class="section-number">1.1. </span>前期准备<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h2>
+<p>AIL需要依赖Python运行，所以在安装AIL之前，请先配置好Python环境。</p>
+<p>具体配置方法就不多赘述，可参见Python的文档：
+<strong>https://docs.python.org/3/tutorial/index.html</strong></p>
+</div>
+<div class="section" id="id2">
+<h2><span class="section-number">1.2. </span>下载AIL<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>AIL目前在Ail-Lang这个Github仓库中进行维护。下载AIL，就像克隆其他仓库一般，克隆AIL-Lang仓库：</p>
+<p><strong>AIL仓库地址：https://github.com/AilLang/Ail</strong></p>
+<p><em>(本教程并不涉及过多git操作的内容，若没有使用过git (或者github)，可以先进行相关的了解)</em></p>
+<p><em>在进行克隆之前，确保你的机器上已经安装并配置好好git环境</em></p>
+<p>打开命令行，输入:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">git</span> <span class="n">clone</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">AilLang</span><span class="o">/</span><span class="n">Ail</span>
+</pre></div>
+</div>
+<p>不出意外的话，AIL的源码将会克隆到你的电脑上。</p>
+</div>
+<div class="section" id="id3">
+<h2><span class="section-number">1.3. </span>安装AIL<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h2>
+<p>要安装AIL，只需要在AIL源码的根目录下，输入</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">python</span> <span class="n">setup</span><span class="o">.</span><span class="n">py</span> <span class="n">install</span>
+</pre></div>
+</div>
+<p>若看到由python setuptools提示的安装成功的信息后，你已经成功了一大步。
+要想测试是否安装成功，只需要在终端中输入: <code class="code docutils literal notranslate"><span class="pre">ail</span></code> ，若能成功进入到AIL的交互环境，则说明安装成功。</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="basic.html" class="btn btn-neutral float-right" title="2. 将AIL用于计算" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="index.html" class="btn btn-neutral float-left" title="AIL 教程" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

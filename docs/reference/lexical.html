@@ -1,0 +1,296 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="zh-CN" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>6. 词法分析 &mdash; AIL-docs  文档</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/translations.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="索引" href="../genindex.html" />
+    <link rel="search" title="搜索" href="../search.html" />
+    <link rel="next" title="7. 基本控制流" href="basic_ctrl_flow.html" />
+    <link rel="prev" title="5. 基本输入和输出" href="input_print.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> AIL-docs
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">目录</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../whatsnew/index.html">版本介绍</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorial/index.html">入门教程</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../library/index.html">标准库参考</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">语言参考</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="operators.html">1. 操作符</a></li>
+<li class="toctree-l2"><a class="reference internal" href="types.html">2. 基本类型</a></li>
+<li class="toctree-l2"><a class="reference internal" href="namespace.html">3. 名称空间</a></li>
+<li class="toctree-l2"><a class="reference internal" href="struct.html">4. 结构体</a></li>
+<li class="toctree-l2"><a class="reference internal" href="input_print.html">5. 基本输入和输出</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">6. 词法分析</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id2">6.1. 行</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id3">6.1.1. 逻辑行</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">6.1.2. 物理行</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id5">6.2. 注释</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">6.3. 行拼接</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">6.3.1. 显式行拼接</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">6.3.2. 隐式行拼接</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="basic_ctrl_flow.html">7. 基本控制流</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">AIL-docs</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">AIL 语言参考手册</a> &raquo;</li>
+        
+      <li><span class="section-number">6. </span>词法分析</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="../_sources/reference/lexical.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="id1">
+<h1><span class="section-number">6. </span>词法分析<a class="headerlink" href="#id1" title="永久链接至标题">¶</a></h1>
+<div class="section" id="id2">
+<h2><span class="section-number">6.1. </span>行<a class="headerlink" href="#id2" title="永久链接至标题">¶</a></h2>
+<p>AIL程序通常由一行或者多行语句构成。其中，行分为 <strong>逻辑行</strong> 和 <strong>物理行</strong> 。</p>
+<div class="section" id="id3">
+<h3><span class="section-number">6.1.1. </span>逻辑行<a class="headerlink" href="#id3" title="永久链接至标题">¶</a></h3>
+<p>逻辑行是根据AIL的语法而规定的一种行结构，除符合语句外，一般以 <em>NEWLINE</em> 结尾。下面的代码只有一条逻辑行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># end of logical line</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="id4">
+<h3><span class="section-number">6.1.2. </span>物理行<a class="headerlink" href="#id4" title="永久链接至标题">¶</a></h3>
+<p>物理行是由若干个字符组成，以换行符结尾的一种行结构。下面的代码有两条物理行。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>  <span class="c1"># line 1</span>
+     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>  <span class="c1"># line 2</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="id5">
+<h2><span class="section-number">6.2. </span>注释<a class="headerlink" href="#id5" title="永久链接至标题">¶</a></h2>
+<p>AIL有两种注释类型： <strong>行注释</strong> 和 <strong>块注释</strong> 。行注释以 <code class="code docutils literal notranslate"><span class="pre">//</span></code> 开头，以换行符结尾。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">date</span> <span class="o">=</span> <span class="mi">726</span>  <span class="o">//</span> <span class="n">assign</span> <span class="mi">726</span> <span class="n">to</span> <span class="n">date</span>
+</pre></div>
+</div>
+<p>块注释可以跨多行，也可以嵌套在语句中。块注释以 <code class="code docutils literal notranslate"><span class="pre">/*</span></code> 开头， <code class="code docutils literal notranslate"><span class="pre">*/</span></code> 结尾。</p>
+</div>
+<div class="section" id="id6">
+<h2><span class="section-number">6.3. </span>行拼接<a class="headerlink" href="#id6" title="永久链接至标题">¶</a></h2>
+<p>编写AIL程序时可能会涉及到行拼接的问题，即逻辑行不在一行内。对于这种情况，AIL提供了行拼接操作。</p>
+<div class="section" id="id7">
+<h3><span class="section-number">6.3.1. </span>显式行拼接<a class="headerlink" href="#id7" title="永久链接至标题">¶</a></h3>
+<p>使用 <code class="code docutils literal notranslate"><span class="pre">\</span> </code>, 可以将当前物理行与下一个物理行拼接在一起。当反斜杠在字符串外，且 <strong>反斜杠的下一个字符字符即是换行符</strong> ，这时后AIL的词法分析器会将跳过这个反斜杠和之后的换行符，并把行号计数器加一。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">age</span> <span class="o">==</span> <span class="mi">3</span> <span class="ow">and</span> \
+   <span class="n">height</span> <span class="o">=</span> <span class="mi">80</span> <span class="p">{</span>
+
+   <span class="o">//</span> <span class="o">...</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>注意， <code class="code docutils literal notranslate"><span class="pre">\</span> </code> 后不可以有除换行符以外的 <strong>任何字符</strong> 。</p>
+</div>
+<div class="section" id="id8">
+<h3><span class="section-number">6.3.2. </span>隐式行拼接<a class="headerlink" href="#id8" title="永久链接至标题">¶</a></h3>
+<p>在一些特殊场合，AIL会隐式地进行行拼接，通常是当换行出现在字符串外， <code class="code docutils literal notranslate"><span class="pre">(</span> <span class="pre">)</span></code> 或 <code class="code docutils literal notranslate"><span class="pre">[</span> <span class="pre">]</span></code> 内时。</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">v</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+     <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]</span>
+
+<span class="n">v2</span> <span class="o">=</span> <span class="n">f</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span>
+       <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>实际上，这个时候隐式行拼接也一样适用。</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="basic_ctrl_flow.html" class="btn btn-neutral float-right" title="7. 基本控制流" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="input_print.html" class="btn btn-neutral float-left" title="5. 基本输入和输出" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; 版权所有 2019-2021, RDPStudio.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
