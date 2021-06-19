@@ -3,7 +3,7 @@ from .._config import CORE_PATH
 
 
 AIL_MAIN_VERSION = 2
-AIL_SUB_VERSION = [1,"2"]
+AIL_SUB_VERSION = [1,2]
 AIL_VERSION_STATE = 'alpha'
 AIL_VERSION = '%s.%s %s' % (AIL_MAIN_VERSION,
                             '.'.join([str(v) for v in AIL_SUB_VERSION]),
