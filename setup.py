@@ -17,7 +17,7 @@ except:
 
 
 setup(
-    name='ail',
+    name='ail-lang',
     packages=find_packages(),
     version='%s.%s' % (AIL_MAIN_VERSION,
                        '.'.join([str(sv) for sv in AIL_SUB_VERSION])),
