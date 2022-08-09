@@ -136,7 +136,9 @@ AIL 为 vim 专门编写了其语法高亮文件，写代码的时候妈妈再�
 
 ## 安装 AIL
 
-运行 AIL 事先准备好的 **setup.py** 可以非常快速地在您的电脑上配置好 AIL。
+下载Next计划编译的 AIL 即可快速在您的电脑上配置好 AIL 环境。[去下载](https://github.com/AilLang/next/releases)
+
+或者您也可以运行 AIL 事先准备好的 **setup.py** 来配置 AIL。这种方法可以使用到最新的特性。
 
 ```sh
 python setup.py install
