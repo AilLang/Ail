@@ -1,7 +1,7 @@
 # AIL 2.1 alpha 2
 
 ![AIL badge](https://img.shields.io/badge/AIL-Programming%20Language-blue)
-![python badge](https://img.shields.io/badge/python-3.6%2B-blue)
+![python badge](https://img.shields.io/badge/python-3.6-blue)
 ![version badge](https://img.shields.io/badge/version-2.1%20alpha-success)
 ![license badge](https://img.shields.io/badge/license-GPL-blue)
 
