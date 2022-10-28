@@ -1,4 +1,4 @@
-from collections import Iterable as IterableType
+from collections.abc import Iterable as IterableType
 from typing import Iterable
 
 from . import types
