@@ -1,6 +1,6 @@
 from sys import argv, exit
 
-from ail_main import launch_main
+from ail.ail_main import launch_main
 
 
 # entry point
